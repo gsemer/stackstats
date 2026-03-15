@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7
+    container_name: stackexchange-redis
+    ports:
+      - "6380:6379"       # Maps container port 6379 to host 6380
+    restart: unless-stopped
+    volumes:
+      - stackexchange-redis-data:/data  # Persist data across restarts
+
+volumes:
+  stackexchange-redis-data:

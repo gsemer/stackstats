@@ -1,0 +1,7 @@
+pydantic-settings
+fastapi
+uvicorn
+aiohttp
+asyncio
+redis
+python-dotenv

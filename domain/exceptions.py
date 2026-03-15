@@ -1,0 +1,3 @@
+class StackExchangeClientError(Exception):
+    """Custom exception that is raised when the StackExchange API fails after all retry attempts."""
+    ...
