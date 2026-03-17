@@ -5,3 +5,5 @@ aiohttp
 asyncio
 redis
 python-dotenv
+pytest
+httpx
