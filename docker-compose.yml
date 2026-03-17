@@ -1,6 +1,18 @@
 version: "3.9"
 
 services:
+
+  app:
+    image: stackexchange
+    container_name: stackexchange-app
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    restart: unless-stopped 
+
   redis:
     image: redis:7
     container_name: stackexchange-redis
