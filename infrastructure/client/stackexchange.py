@@ -60,9 +60,9 @@ class StackExchangeClient(StackExchangeClientInterface):
                     async with self._session.get(url, params=params) as response:
                         response.raise_for_status()
                         return await response.json()
-            except aiohttp.ClientError:
+            except aiohttp.ClientError as client_error:
                 if attempt == settings.RETRY_ATTEMPTS - 1:
-                    raise StackExchangeClientError()
+                    raise StackExchangeClientError() from client_error
                 await asyncio.sleep(settings.RETRY_WAIT)
 
     async def fetch_answers(self, since: int, until: int) -> List[Answer]:
